@@ -13,10 +13,10 @@ const connection = mysql.createConnection({
 connection.connect();
 
 app.post('/api/create-folder', (req, res) => {
-    const { clientName, clientEmail } = req.body;
+    const { clientName, clientEmail, clientPhone, unlockCode, deviceModel, repairRate } = req.body;
     connection.query(
-        'INSERT INTO Dossiers (clientName, clientEmail) VALUES (?, ?)',
-        [clientName, clientEmail],
+        'INSERT INTO Dossiers (clientName, clientEmail, clientPhone, unlockCode, deviceModel, repairRate) VALUES (?, ?, ?, ?, ?, ?)',
+        [clientName, clientEmail, clientPhone, unlockCode, deviceModel, repairRate],
         (error, results) => {
             if (error) {
                 return res.status(500).json({ message: "Erreur lors de l'insertion du dossier." });

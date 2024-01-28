@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signature du Client</title>
+    <link rel="stylesheet" href="css/style.css"> <!-- Lien vers le fichier CSS de signature -->
+    <script src="js/signature_pad.min.js"></script> <!-- Inclure la bibliothèque Signature Pad -->
+</head>
+<body>
+    <header>
+        <h1>Récapitulatif et Signature</h1>
+    </header>
+    <main>
+        <div id="recap">
+            <p>Nom du Client: <span id="client-name"><!-- Nom du client --></span></p>
+            <p>Email du Client: <span id="client-email"><!-- Email du client --></span></p>
+            <!-- Texte de décharge -->
+            <p id="discharge-text">Texte de décharge ici...</p>
+        </div>
+        <div id="signature-pad">
+            <!-- Champ de signature -->
+            <canvas id="signature-canvas"></canvas>
+        </div>
+        <button id="save-signature">Sauvegarder Signature</button>
+    </main>
+    <footer>
+        <!-- Votre pied de page ici -->
+    </footer>
+    <script src="js/signature.js"></script> <!-- Lien vers le fichier JS de signature -->
+</body>
+</html>
