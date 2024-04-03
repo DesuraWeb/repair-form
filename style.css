@@ -86,3 +86,52 @@ footer button {
     border-radius: 20px;
     box-sizing: border-box;
 }
+
+/* Stylisation des champs de formulaire */
+input,
+select {
+    display: block; /* Chaque champ occupe sa propre ligne */
+    width: 80%; /* Largeur réduite pour correspondre à celle des boutons */
+    margin: 10px auto; /* Centrer les champs et ajouter de l'espace autour */
+    padding: 15px; /* Hauteur de ligne pour correspondre aux boutons */
+    font-size: 16px; /* Taille de police standard pour les entrées */
+    border: 1px solid #ccc; /* Bordure subtile */
+    border-radius: 20px; /* Bords arrondis pour correspondre aux boutons */
+    box-sizing: border-box; /* Inclure padding dans la largeur */
+}
+
+/* Stylisation spécifique pour les boutons */
+button.submit-button {
+    background-color: #007bff; /* Couleur de fond pour correspondre aux boutons du tableau de bord */
+    color: white; /* Texte en blanc */
+    margin: 20px auto; /* Espace au-dessus et en dessous du bouton */
+    display: block; /* Assurer que le bouton est centré et sur sa propre ligne */
+    border: none; /* Aucune bordure pour les boutons */
+    cursor: pointer; /* Style de curseur pour indiquer qu'il est cliquable */
+}
+
+button.submit-button:hover {
+    background-color: #0056b3; /* Couleur au survol */
+}
+
+/* Ajout d'une transition douce pour le survol des boutons */
+button.submit-button {
+    transition: background-color 0.3s ease;
+}
+
+/* Nouveau style pour la sélection du type de déverrouillage et le container du schéma */
+#unlockType, #pinCode, #patternContainer, .submit-button {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#patternContainer {
+    /* Ajoutez des styles pour votre container de schéma ici */
+    height: 200px; /* Définissez la hauteur nécessaire pour votre schéma */
+    background-color: #eee; /* Couleur de fond pour la zone de dessin du schéma */
+}

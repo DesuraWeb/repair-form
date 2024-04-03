@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer un dossier de réparation</title>
+    <script src="jquery.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="patternlock.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="app-header">
+            <img src="images/icon-192x192.png" alt="Logo" class="app-logo"/>
+        </header>
+        <main>
+            <h1>Création de dossier</h1>
+            <p>Veuillez remplir tous les champs pour soumettre un dossier</p>
+            <form id="repairForm">
+                <input type="text" id="fullname" name="fullname" placeholder="Nom / Prénom" required>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <input type="tel" id="phone" name="phone" placeholder="Numéro de téléphone" required>
+                
+                <select id="unlockType" name="unlockType">
+                    <option value="pin">Code PIN</option>
+                    <option value="pattern">Schéma</option>
+                </select>
+                <input type="password" id="pinCode" name="pinCode" placeholder="Code de déverrouillage" required style="display:none;">
+                
+                <div id="patternContainer" style="display:none;">
+                    <svg class="patternlock" id="lock" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <g class="lock-actives"></g>
+                        <g class="lock-lines"></g>
+                        <g class="lock-dots">
+                            <circle cx="20" cy="20" r="2"/>
+                            <circle cx="50" cy="20" r="2"/>
+                            <circle cx="80" cy="20" r="2"/>
+                            <circle cx="20" cy="50" r="2"/>
+                            <circle cx="50" cy="50" r="2"/>
+                            <circle cx="80" cy="50" r="2"/>
+                            <circle cx="20" cy="80" r="2"/>
+                            <circle cx="50" cy="80" r="2"/>
+                            <circle cx="80" cy="80" r="2"/>
+                        </g>
+                    </svg>
+                </div>
+                
+                <input type="text" id="model" name="model" placeholder="Modèle du téléphone" required>
+                <select id="repairType" name="repairType" required>
+                    <option value="">Type de réparation</option>
+                    <option value="screen">Écran</option>
+                    <option value="battery">Batterie</option>
+                    <option value="charging_connector">Connecteur de charge</option>
+                    <option value="earpiece">Écouteur</option>
+                    <option value="loudspeaker">Haut-parleur</option>
+                    <option value="vibrator">Vibreur</option>
+                    <option value="rear_glass">Vitre Arrière</option>
+                    <option value="chassis">Chassis</option>
+                    <option value="bluetooth_wifi">Bluetooth / Wifi</option>
+                    <option value="front_camera">Appareil Photo Avant</option>
+                    <option value="rear_camera">Appareil Photo Arrière</option>
+                </select>
+                <input type="text" id="estimatedPrice" name="estimatedPrice" placeholder="Tarif prévisionnel" required>
+                <button type="submit" class="submit-button">Continuer</button>
+            </form>
+            <a href="index.html" class="back-to-dashboard">Retour au tableau de bord</a>
+        </main>
+    </div>
+    <script src="patternlock.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
