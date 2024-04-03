@@ -1,0 +1,22 @@
+{
+    "dashboardTitle": "Tableau de bord",
+    "welcomeMessage": "Veuillez sélectionner une catégorie pour votre demande",
+    "privacyPolicy": "En utilisant ce service vous acceptez notre politique de confidentialité.",
+    "creationIntervention": "Création intervention",
+    "takeCharge": "Prise en charge",
+    "files": "Dossiers",
+    "settings": "Paramètres",
+    "backToDashboard": "Retour au tableau de bord",
+    "creationFolder": "Création de dossier",
+    "fillAllFields": "Veuillez remplir tous les champs pour soumettre un dossier",
+    "contact": "Contact",
+    "information": "Informations",
+    "deviceModel": "Modèle de l'appareil",
+    "repairType": "Type de réparation",
+    "unlockType": "Type de déverrouillage",
+    "unlockCode": "Code de déverrouillage",
+    "patternContainer": "Conteneur de schéma",
+    "estimatedPrice": "Tarif prévisionnel",
+    "continue": "Continuer"
+  }
+  
