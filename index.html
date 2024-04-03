@@ -3,26 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tableau de Bord</title>
-    <link rel="stylesheet" href="css/style.css"> <!-- Lien vers le fichier CSS -->
+    <title>Tableau de bord</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
-    <header>
-        <h1>Bienvenue sur votre tableau de bord</h1>
-    </header>
-    <main>
-        <section id="dashboard">
-            <button id="create-folder">Créer un dossier</button>
-            <button id="qualirepar-form">Formulaire Qualirepar</button>
-            <button id="previous-folders">Dossiers antérieurs</button>
-        </section>
-    </main>
-    <footer>
-        <p>Termes et conditions | Politique de récompense | Politique de confidentialité</p>
-    </footer>
-    <script src="js/main.js"></script> <!-- Lien vers le fichier JavaScript principal -->
-    <script src="js/createFolder.js"></script> <!-- Lien vers le fichier JavaScript pour la création de dossiers -->
-    <script src="js/qualireparForm.js"></script> <!-- Lien vers le fichier JavaScript pour le formulaire Qualirepar -->
-    <script src="js/previousFolders.js"></script> <!-- Lien vers le fichier JavaScript pour les dossiers antérieurs -->
+    <div class="container">
+        <div class="container">
+            <header class="app-header">
+                <img src="path-to-your-logo.png" alt="Logo" class="app-logo"/>
+                <!-- ... le reste de votre header ... -->
+            </header>
+        <main>
+            <h1>Tableau de bord</h1>
+            <p>Veuillez sélectionner une catégorie pour votre demandes</p>
+            <div class="options">
+                <a href="create-repair.html" class="option active">
+                    <img src="folder-icon.svg" alt="" />
+                    Créer un dossier
+                </a>
+                <a href="#" class="option">
+                    <img src="form-icon.svg" alt="" />
+                    Formulaire Qualirepar
+                </a>
+                <a href="#" class="option">
+                    <img src="folder-history-icon.svg" alt="" />
+                    Dossiers antérieurs
+                </a>
+            </div>
+            <a href="#" class="back-to-dashboard">Retour au tableau de bord</a>
+        </main>
+        <footer>
+            <p>En utilisant ce service vous acceptez notre politique de confidentialité.</p>
+            <button type="button">Accepter</button>
+        </footer>
+    </div>
+    <script src="app.js"></script>
 </body>
 </html>

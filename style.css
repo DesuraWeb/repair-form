@@ -1,0 +1,88 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: #FFF;
+    color: #333;
+    text-align: center;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding-bottom: 80px; /* Ajouté pour éviter que le contenu soit caché par le footer */
+}
+
+main h1 {
+    margin: 20px 0;
+}
+
+main p {
+    color: #666;
+}
+
+.app-header {
+    display: flex;
+    justify-content: center; /* Centre le contenu dans le header */
+    padding: 10px;
+    background: #f0f0f0;
+}
+
+.app-logo {
+    height: 50px; /* ou la hauteur désirée pour votre logo */
+    width: auto; /* maintient les proportions de l'image */
+    /* Ajoutez des styles supplémentaires si nécessaire */
+}
+
+.options a {
+    display: inline-block;
+    width: 80%; /* Largeur modifiée */
+    margin: 10px 10%; /* Marge ajustée pour centrer le bouton */
+    padding: 15px;
+    background: #007bff; /* Couleur de fond standardisée */
+    color: #fff; /* Texte blanc pour tous les boutons */
+    text-decoration: none;
+    border-radius: 20px;
+    box-sizing: border-box; /* S'assurer que la largeur de 80% inclut le padding */
+}
+
+.options img {
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.back-to-dashboard {
+    display: block;
+    margin: 20px 0;
+    color: #007bff;
+    text-decoration: none;
+}
+
+footer {
+    background: #f0f0f0;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: calc(100% - 40px); /* Largeur modifiée pour inclure le padding */
+    box-sizing: border-box; /* S'assurer que le padding est inclus dans la largeur */
+    left: 50%;
+    transform: translateX(-50%); /* Centrer le footer exactement */
+    max-width: 600px; /* Ajouté pour limiter la largeur du footer */
+}
+
+footer p {
+    color: #666;
+    font-size: 14px;
+}
+
+footer button {
+    width: calc(100% - 40px); /* Largeur ajustée pour inclure le padding */
+    padding: 15px;
+    margin-top: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
