@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de bord</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-http-backend@latest/dist/umd/i18nextHttpBackend.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="container">
+            <header class="app-header">
+                <img src="images/icon-192x192.png" alt="Logo" class="app-logo"/>
+            </header>
+        <main>
+            <h1>Tableau de bord</h1>
+            <p>Veuillez sélectionner une catégorie pour votre demande</p>
+            <div class="options">
+                <a href="create-repair.html" class="option active">
+                    <img src="images/svg/create-folder.svg" alt="" />
+                    Création intervention
+                </a>
+                <a href="#" class="option">
+                    <img src="images/svg/activate-warranty.svg" alt="" />
+                    Prise en charge
+                </a>
+                <a href="#" class="option">
+                    <img src="images/svg/folder-history.svg" alt="" />
+                    Dossiers
+                </a>
+                <a href="settings.html" class="option">
+                    <img src="images/svg/settings.svg" alt="" />
+                    Paramètres
+                </a>
+            </div>
+            <a href="#" class="back-to-dashboard">Retour au tableau de bord</a>
+        </main>
+        <footer>
+            <p>En utilisant ce service vous acceptez notre politique de confidentialité.</p>
+            <button type="button">Accepter</button>
+        </footer>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n>Créer un dossier de réparation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="patternlock.min.css">
+    <script src="patternlock.min.js"></script>
+    <!-- Assurez-vous que jQuery est le premier script chargé -->
+    <script src="jquery.js" charset="utf-8"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="app-header">
+            <img src="images/icon-192x192.png" alt="Logo" class="app-logo"/>
+        </header>
+        <main>
+            <h1 data-i18n="creationTitle">Création de dossier</h1>
+            <p data-i18n="fillFields">Veuillez remplir tous les champs pour soumettre un dossier</p>
+            <h2 data-i18n="contactInfo">Contact</h2>
+            <form id="repairForm">
+                <input type="text" id="fullname" name="fullname" placeholder="Nom / Prénom" required data-i18n="namePlaceholder">
+                <input type="email" id="email" name="email" placeholder="Email" required data-i18n="emailPlaceholder">
+                <input type="tel" id="phone" name="phone" placeholder="Numéro de téléphone" required data-i18n="phonePlaceholder">
+
+                <h2 data-i18n="deviceInfo">Informations sur l'appareil</h2>
+
+            <input type="text" id="model" name="model" placeholder="Modèle de l'appareil" required>
+                <select id="repairType" name="repairType" required>
+                    <option value="">Type de réparation</option>
+                    <option value="screen">Écran</option>
+                    <option value="battery">Batterie</option>
+                    <option value="charging_connector">Connecteur de charge</option>
+                    <option value="earpiece">Écouteur</option>
+                    <option value="loudspeaker">Haut-parleur</option>
+                    <option value="vibrator">Vibreur</option>
+                    <option value="rear_glass">Vitre Arrière</option>
+                    <option value="chassis">Chassis</option>
+                    <option value="bluetooth_wifi">Bluetooth / Wifi</option>
+                    <option value="front_camera">Appareil Photo Avant</option>
+                    <option value="rear_camera">Appareil Photo Arrière</option>
+                </select>
+                
+                <select id="unlockType" name="unlockType">
+                    <option value="pin">Code PIN</option>
+                    <option value="pattern">Schéma</option>
+                </select>
+                <input type="password" id="pinCode" name="pinCode" placeholder="Code de déverrouillage" required style="display:none;">
+                
+                <div id="patternContainer" style="display:none;">
+                    <svg class="patternlock" id="lock" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="250" height="250">
+                        <g class="lock-actives"></g>
+                        <g class="lock-lines"></g>
+                        <g class="lock-dots">
+                            <circle cx="20" cy="20" r="2"/>
+                            <circle cx="50" cy="20" r="2"/>
+                            <circle cx="80" cy="20" r="2"/>
+                            <circle cx="20" cy="50" r="2"/>
+                            <circle cx="50" cy="50" r="2"/>
+                            <circle cx="80" cy="50" r="2"/>
+                            <circle cx="20" cy="80" r="2"/>
+                            <circle cx="50" cy="80" r="2"/>
+                            <circle cx="80" cy="80" r="2"/>
+                        </g>
+                    </svg>
+                </div>
+                    
+                <input type="text" id="estimatedPrice" name="estimatedPrice" placeholder="Tarif prévisionnel" required inputmode="decimal">
+                    <span class="currency-symbol">€</span>
+                <button type="submit" class="submit-button">Continuer</button>
+            </form>
+            <a href="index.html" class="back-to-dashboard">Retour au tableau de bord</a>
+        </main>
+    </div>
+    <!-- Ensuite, chargez i18next et i18next-http-backend -->
+    <script src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-http-backend@1.3.1/i18nextHttpBackend.min.js"></script>
+    <!-- Votre fichier app.js doit être le dernier script chargé -->
+    <script src="app.js"></script>
+</body>
+</html>

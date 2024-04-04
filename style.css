@@ -1,0 +1,153 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: #FFF;
+    color: #333;
+    text-align: center;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding-bottom: 80px; /* Espacement pour éviter que le contenu soit caché par le footer */
+}
+
+main h1, main h2 {
+    margin: 20px 0;
+}
+
+main p, .setting-option label {
+    color: #666;
+}
+
+.app-header {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background: #f0f0f0;
+}
+
+.app-logo {
+    height: 50px;
+    width: auto;
+}
+
+.options a, .setting-option {
+    display: inline-block;
+    width: 80%;
+    margin: 10px 10%;
+    padding: 15px;
+    background: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+.options img, .setting-option img {
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.back-to-dashboard {
+    display: block;
+    margin: 20px 0;
+    color: #007bff;
+    text-decoration: none;
+}
+
+footer {
+    background: #f0f0f0;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: calc(100% - 40px);
+    box-sizing: border-box;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 600px;
+}
+
+footer p {
+    color: #666;
+    font-size: 14px;
+}
+
+footer button {
+    width: calc(100% - 40px);
+    padding: 15px;
+    margin-top: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+input, select, button.submit-button {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+button.submit-button:hover {
+    background-color: #0056b3;
+}
+
+button.submit-button {
+    transition: background-color 0.3s ease;
+}
+
+#unlockType, #pinCode, #patternContainer {
+    font-size: 1em;
+}
+
+#patternContainer {
+    height: 250px;
+    width: 250px; /* Ajustez si nécessaire pour la taille de votre SVG */
+    background-color: #eee;
+}
+
+.input-container {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: #f0f0f0;
+    border-radius: 20px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+}
+
+#estimatedPrice {
+    border: none;
+    background-color: transparent;
+    flex-grow: 1;
+}
+
+.currency-symbol {
+    margin-left: 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+.settings-section {
+    margin: 20px 0;
+}
+
+#languageSelector {
+    display: block;
+    width: 100%; /* Ou la largeur désirée */
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+}
+

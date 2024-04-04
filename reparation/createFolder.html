@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer un Dossier</title>
+    <link rel="stylesheet" href="css/style.css"> <!-- Utilisation du style global -->
+</head>
+<body>
+    <header>
+        <h1>Créer un nouveau dossier de réparation</h1>
+    </header>
+    <main>
+        <form id="create-folder-form">
+            <label for="client-name">Nom du Client :</label>
+            <input type="text" id="client-name" name="client-name" required>
+
+            <label for="client-email">Email du Client :</label>
+            <input type="email" id="client-email" name="client-email" required>
+
+            <label for="client-phone">Numéro de téléphone :</label>
+            <input type="tel" id="client-phone" name="client-phone" required>
+
+            <label for="unlock-code">Code de déverrouillage :</label>
+            <input type="text" id="unlock-code" name="unlock-code">
+
+            <label for="device-model">Modèle :</label>
+            <input type="text" id="device-model" name="device-model" required>
+
+            <label for="repair-rate">Tarif :</label>
+            <input type="number" id="repair-rate" name="repair-rate" required>
+
+            <!-- Ajoutez d'autres champs selon vos besoins -->
+
+            <button type="submit">Continuer</button>
+        </form>
+        <button onclick="location.href='index.html'">Retour au tableau de bord</button>
+    </main>
+    <footer>
+        <!-- Votre pied de page ici -->
+    </footer>
+    <script src="js/createFolder.js"></script> <!-- Lien vers le JavaScript pour la création de dossier -->
+</body>
+</html>
