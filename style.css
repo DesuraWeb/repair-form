@@ -10,42 +10,43 @@ body, html {
 .container {
     max-width: 600px;
     margin: 0 auto;
-    padding-bottom: 80px; /* Espacement pour éviter que le contenu soit caché par le footer */
+    padding-bottom: 80px; /* Ajouté pour éviter que le contenu soit caché par le footer */
 }
 
-main h1, main h2 {
+main h1 {
     margin: 20px 0;
 }
 
-main p, .setting-option label {
+main p {
     color: #666;
 }
 
 .app-header {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centre le contenu dans le header */
     padding: 10px;
     background: #f0f0f0;
 }
 
 .app-logo {
-    height: 50px;
-    width: auto;
+    height: 50px; /* ou la hauteur désirée pour votre logo */
+    width: auto; /* maintient les proportions de l'image */
+    /* Ajoutez des styles supplémentaires si nécessaire */
 }
 
-.options a, .setting-option {
+.options a {
     display: inline-block;
-    width: 80%;
-    margin: 10px 10%;
+    width: 80%; /* Largeur modifiée */
+    margin: 10px 10%; /* Marge ajustée pour centrer le bouton */
     padding: 15px;
-    background: #007bff;
-    color: #fff;
+    background: #007bff; /* Couleur de fond standardisée */
+    color: #fff; /* Texte blanc pour tous les boutons */
     text-decoration: none;
     border-radius: 20px;
-    box-sizing: border-box;
+    box-sizing: border-box; /* S'assurer que la largeur de 80% inclut le padding */
 }
 
-.options img, .setting-option img {
+.options img {
     height: 24px;
     vertical-align: middle;
     margin-right: 10px;
@@ -63,11 +64,11 @@ footer {
     padding: 20px;
     position: fixed;
     bottom: 0;
-    width: calc(100% - 40px);
-    box-sizing: border-box;
+    width: calc(100% - 40px); /* Largeur modifiée pour inclure le padding */
+    box-sizing: border-box; /* S'assurer que le padding est inclus dans la largeur */
     left: 50%;
-    transform: translateX(-50%);
-    max-width: 600px;
+    transform: translateX(-50%); /* Centrer le footer exactement */
+    max-width: 600px; /* Ajouté pour limiter la largeur du footer */
 }
 
 footer p {
@@ -76,7 +77,7 @@ footer p {
 }
 
 footer button {
-    width: calc(100% - 40px);
+    width: calc(100% - 40px); /* Largeur ajustée pour inclure le padding */
     padding: 15px;
     margin-top: 10px;
     background: #007bff;
@@ -86,68 +87,51 @@ footer button {
     box-sizing: border-box;
 }
 
-input, select, button.submit-button {
-    display: block;
-    width: 80%;
-    margin: 10px auto;
-    padding: 15px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    box-sizing: border-box;
+/* Stylisation des champs de formulaire */
+input,
+select {
+    display: block; /* Chaque champ occupe sa propre ligne */
+    width: 80%; /* Largeur réduite pour correspondre à celle des boutons */
+    margin: 10px auto; /* Centrer les champs et ajouter de l'espace autour */
+    padding: 15px; /* Hauteur de ligne pour correspondre aux boutons */
+    font-size: 16px; /* Taille de police standard pour les entrées */
+    border: 1px solid #ccc; /* Bordure subtile */
+    border-radius: 20px; /* Bords arrondis pour correspondre aux boutons */
+    box-sizing: border-box; /* Inclure padding dans la largeur */
+}
+
+/* Stylisation spécifique pour les boutons */
+button.submit-button {
+    background-color: #007bff; /* Couleur de fond pour correspondre aux boutons du tableau de bord */
+    color: white; /* Texte en blanc */
+    margin: 20px auto; /* Espace au-dessus et en dessous du bouton */
+    display: block; /* Assurer que le bouton est centré et sur sa propre ligne */
+    border: none; /* Aucune bordure pour les boutons */
+    cursor: pointer; /* Style de curseur pour indiquer qu'il est cliquable */
 }
 
 button.submit-button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Couleur au survol */
 }
 
+/* Ajout d'une transition douce pour le survol des boutons */
 button.submit-button {
     transition: background-color 0.3s ease;
 }
 
-#unlockType, #pinCode, #patternContainer {
+/* Nouveau style pour la sélection du type de déverrouillage et le container du schéma */
+#unlockType, #pinCode, #patternContainer, .submit-button {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
     font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 #patternContainer {
-    height: 250px;
-    width: 250px; /* Ajustez si nécessaire pour la taille de votre SVG */
-    background-color: #eee;
+    /* Ajoutez des styles pour votre container de schéma ici */
+    height: 200px; /* Définissez la hauteur nécessaire pour votre schéma */
+    background-color: #eee; /* Couleur de fond pour la zone de dessin du schéma */
 }
-
-.input-container {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    background: #f0f0f0;
-    border-radius: 20px;
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-}
-
-#estimatedPrice {
-    border: none;
-    background-color: transparent;
-    flex-grow: 1;
-}
-
-.currency-symbol {
-    margin-left: 5px;
-    font-size: 16px;
-    color: #333;
-}
-
-.settings-section {
-    margin: 20px 0;
-}
-
-#languageSelector {
-    display: block;
-    width: 100%; /* Ou la largeur désirée */
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    background-color: #f8f8f8;
-}
-
