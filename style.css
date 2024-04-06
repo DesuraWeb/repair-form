@@ -1,8 +1,8 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
-    background: #FFF;
+    font-family: 'Comfortaa', sans-serif;
+    background: #fff;
     color: #333;
     text-align: center;
 }
@@ -10,114 +10,132 @@ body, html {
 .container {
     max-width: 600px;
     margin: 0 auto;
-    padding-bottom: 80px; /* Ajouté pour éviter que le contenu soit caché par le footer */
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+}
+
+.app-header {
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: relative; /* Si ce n'est pas déjà le cas */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app-logo {
+    height: 40px;
+    width: auto;
+}
+
+#qrScanButton {
+    background: transparent; /* Assurez-vous que le fond est transparent */
+    border: none; /* Supprime la bordure par défaut des boutons */
+    padding: 0; /* Ajustez le remplissage si nécessaire */
+    cursor: pointer; /* Change le curseur en une main lors du survol */
+    outline: none; /* Supprime le contour lors de la sélection du bouton */
+}
+
+
+.qr-scan-icon {
+    width: 30px; /* Taille de l'icône */
+    height: 30px; /* Taille de l'icône */
+    cursor: pointer;
 }
 
 main h1 {
     margin: 20px 0;
+    color: #242424;
+    text-align: left;
 }
 
 main p {
-    color: #666;
-}
-
-.app-header {
-    display: flex;
-    justify-content: center; /* Centre le contenu dans le header */
-    padding: 10px;
-    background: #f0f0f0;
-}
-
-.app-logo {
-    height: 50px; /* ou la hauteur désirée pour votre logo */
-    width: auto; /* maintient les proportions de l'image */
-    /* Ajoutez des styles supplémentaires si nécessaire */
+    margin-bottom: 30px;
+    text-align: left;
 }
 
 .options a {
-    display: inline-block;
-    width: 80%; /* Largeur modifiée */
-    margin: 10px 10%; /* Marge ajustée pour centrer le bouton */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 15px;
-    background: #007bff; /* Couleur de fond standardisée */
-    color: #fff; /* Texte blanc pour tous les boutons */
+    margin-bottom: 10px;
+    background: #F3F4F6;
+    border: 2px solid #eeeeee;
+    border-radius: 16px;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 16px;
     text-decoration: none;
-    border-radius: 20px;
-    box-sizing: border-box; /* S'assurer que la largeur de 80% inclut le padding */
+    color: #333;
+    height: 50px;
+    justify-content: left;
 }
 
-.options img {
-    height: 24px;
-    vertical-align: middle;
-    margin-right: 10px;
+.options a.active, .options a:hover {
+    background: #3E52C1;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.options a img {
+    margin-right: 20px;
+    padding-left: 5px;
 }
 
 .back-to-dashboard {
     display: block;
-    margin: 20px 0;
-    color: #007bff;
+    margin-top: 30px;
+    color: #3E52C1;
     text-decoration: none;
 }
 
 footer {
-    background: #f0f0f0;
+    background: transparent;
+    color: #242424;
     padding: 20px;
-    position: fixed;
-    bottom: 0;
-    width: calc(100% - 40px); /* Largeur modifiée pour inclure le padding */
-    box-sizing: border-box; /* S'assurer que le padding est inclus dans la largeur */
-    left: 50%;
-    transform: translateX(-50%); /* Centrer le footer exactement */
-    max-width: 600px; /* Ajouté pour limiter la largeur du footer */
+    text-align: center;
 }
 
 footer p {
-    color: #666;
-    font-size: 14px;
+    margin-top: 50px;
 }
 
-footer button {
-    width: calc(100% - 40px); /* Largeur ajustée pour inclure le padding */
+.start-button {
+    width: 80%;
     padding: 15px;
-    margin-top: 10px;
-    background: #007bff;
-    color: white;
+    margin-top: 20px;
+    background: #3E52C1;
+    color: #ffffff;
     border: none;
-    border-radius: 20px;
-    box-sizing: border-box;
+    border-radius: 25px;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    text-transform: uppercase;
 }
 
-/* Stylisation des champs de formulaire */
-input,
-select {
-    display: block; /* Chaque champ occupe sa propre ligne */
-    width: 80%; /* Largeur réduite pour correspondre à celle des boutons */
-    margin: 10px auto; /* Centrer les champs et ajouter de l'espace autour */
-    padding: 15px; /* Hauteur de ligne pour correspondre aux boutons */
-    font-size: 16px; /* Taille de police standard pour les entrées */
-    border: 1px solid #ccc; /* Bordure subtile */
-    border-radius: 20px; /* Bords arrondis pour correspondre aux boutons */
-    box-sizing: border-box; /* Inclure padding dans la largeur */
+#cookieConsent {
+    position: fixed; /* ou 'absolute' si vous voulez qu'il se déplace avec le scrolling */
+    bottom: 0; /* Positionnez en bas de la page */
+    left: 0; /* Aligné à gauche */
+    width: 100%; /* Prend toute la largeur */
+    background: #ffffff; /* Arrière-plan blanc ou autre couleur de fond */
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Ombre optionnelle pour la séparation visuelle */
+    z-index: 1000; /* S'assure que le footer se trouve au-dessus des autres éléments */
+    padding: 1rem;
+    box-sizing: border-box; /* Inclut le padding dans la largeur */
+    display: flex; /* Utiliser flexbox pour aligner le texte et le bouton */
+    justify-content: space-between; /* Espacer le texte et le bouton */
+    align-items: center; /* Centrer les éléments verticalement */
 }
 
-/* Stylisation spécifique pour les boutons */
-button.submit-button {
-    background-color: #007bff; /* Couleur de fond pour correspondre aux boutons du tableau de bord */
-    color: white; /* Texte en blanc */
-    margin: 20px auto; /* Espace au-dessus et en dessous du bouton */
-    display: block; /* Assurer que le bouton est centré et sur sa propre ligne */
-    border: none; /* Aucune bordure pour les boutons */
-    cursor: pointer; /* Style de curseur pour indiquer qu'il est cliquable */
+.start-button {
+    margin-right: 1rem; /* Ajouter un peu d'espace à droite du bouton */
 }
 
-button.submit-button:hover {
-    background-color: #0056b3; /* Couleur au survol */
-}
 
-/* Ajout d'une transition douce pour le survol des boutons */
-button.submit-button {
-    transition: background-color 0.3s ease;
-}
 
 /* Nouveau style pour la sélection du type de déverrouillage et le container du schéma */
 #unlockType, #pinCode, #patternContainer, .submit-button {
@@ -132,6 +150,44 @@ button.submit-button {
 
 #patternContainer {
     /* Ajoutez des styles pour votre container de schéma ici */
-    height: 200px; /* Définissez la hauteur nécessaire pour votre schéma */
+    height: 250px;
+    width: 250px; /* Définissez la hauteur nécessaire pour votre schéma */
     background-color: #eee; /* Couleur de fond pour la zone de dessin du schéma */
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f0f0f0; /* Gris clair pour le bouton inactif */
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button img.icon {
+    margin-right: 10px;
+}
+
+.button img.checkmark {
+    margin-left: 10px;
+    opacity: 0; /* Icone droite invisible pour le bouton inactif */
+}
+
+.button.active {
+    background-color: #3E52C1; /* Bleu pour le bouton actif */
+    color: white;
+}
+
+.button.active img.checkmark {
+    opacity: 1; /* Icone droite visible pour le bouton actif */
+}
+
+.button span {
+    flex-grow: 1;
+    text-align: left;
 }
