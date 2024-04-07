@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Vider le localStorage à chaque chargement de la page
+            localStorage.removeItem('repairFormData');
+        });
+        </script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -113,6 +119,26 @@
             <a href="index.html" class="back-to-dashboard">Retour au tableau de bord</a>
         </main>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('repairForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const formData = {
+                    fullname: document.getElementById('fullname').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    unlockType: document.getElementById('unlockType').value,
+                    pinCode: document.getElementById('pinCode').value,
+                    model: document.getElementById('model').value,
+                    repairType: document.getElementById('repairType').value,
+                    estimatedPrice: document.getElementById('estimatedPrice').value
+                };
+        
+                localStorage.setItem('repairFormData', JSON.stringify(formData));
+                window.location.href = 'accept-repair.html';
+            });
+        });
+        </script>
     <script src="js/patternlock.min.js"></script>
     <script src="js/app.js"></script>
 </body>

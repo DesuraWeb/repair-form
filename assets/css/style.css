@@ -106,16 +106,15 @@ footer p {
 
 .start-button {
     width: 80%;
-    padding: 15px;
-    margin-top: 20px;
-    background: #3E52C1;
-    color: #ffffff;
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 12px;
     border: none;
-    border-radius: 25px;
-    font-family: 'Comfortaa', sans-serif;
-    font-size: 18px;
+    background-color: #3E52C1;
+    color: white;
     cursor: pointer;
-    text-transform: uppercase;
+    height: 55px;
+    font-family: 'Comfortaa', sans-serif;
 }
 
 #cookieConsent {
@@ -132,12 +131,6 @@ footer p {
     justify-content: space-between; /* Espacer le texte et le bouton */
     align-items: center; /* Centrer les éléments verticalement */
 }
-
-.start-button {
-    margin-right: 1rem; /* Ajouter un peu d'espace à droite du bouton */
-}
-
-
 
 /* Nouveau style pour la sélection du type de déverrouillage et le container du schéma */
 #Typeunlock, #pinCode, #patternContainer, .submit-button {
@@ -234,6 +227,7 @@ button[type="submit"] {
     font-family: 'Comfortaa', sans-serif;
 }
 
+
 a {
     text-align: center;
     color: #007bff;
@@ -281,7 +275,7 @@ a {
 }
 
 input#estimatedPrice {
-    background: url('images/svg/create-repair/euro.svg') no-repeat right 10px center, linear-gradient(to bottom, #ffffff, #ffffff); /* ajustez le chemin de l'icône de flèche */
+    background: url('assets/images/svg/create-repair/euro.svg') no-repeat right 10px center, linear-gradient(to bottom, #ffffff, #ffffff); /* ajustez le chemin de l'icône de flèche */
 }
 
 
@@ -356,3 +350,68 @@ input#estimatedPrice {
     text-decoration: none;
 }
 
+/* Acceptation de la réparation */
+/* Assurez-vous que ce CSS est bien inclus dans le fichier style.css référencé dans votre page HTML */
+.summary {
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.summary p {
+    font-family: 'Comfortaa', cursive;
+    font-size: 16px;
+    color: #333;
+    background-color: #F9FAFB;
+    margin: 10px 0;
+    padding: 0px;
+    text-align: center;
+}
+
+.summary #disclaimer {
+    margin-top: 20px;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* Signature */
+.signature-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.signature-pad {
+    border: 2px solid #2B3987;
+    border-radius: 5px;
+    position: relative; /* Assure que les éléments enfants positionnés de manière absolue se basent sur ce conteneur */
+    background-color: #F9FAFB;
+    overflow: hidden; /* Empêche le bouton de déborder du conteneur */
+}
+
+.signature-pad canvas {
+    width: 100%;
+    max-width: 100%; /* Assure que le canvas ne déborde pas de son conteneur */
+    height: 200px;
+    border-bottom-left-radius: 4px; /* Adoucit le coin inférieur gauche */
+    border-bottom-right-radius: 4px; /* Adoucit le coin inférieur droit */
+    cursor: crosshair;
+    background-color: #F9FAFB;
+}
+
+#clear {
+    position: absolute; /* Positionne le bouton de manière absolue par rapport à son conteneur parent */
+    top: 5px; /* Petite marge du haut */
+    right: 5px; /* Aligné à droite avec une petite marge */
+    background-color: #f44336; /* Rouge */
+    color: white;
+    border: none;
+    padding: 5px 10px; /* Ajustement du padding */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8em; /* Ajustez la taille du texte selon vos besoins */
+}
+
+#clear:hover {
+    background-color: #d32f2f; /* Rouge plus foncé */
+}
