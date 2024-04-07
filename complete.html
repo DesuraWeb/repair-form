@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prise en charge complète</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="app-header">
+            <img src="assets/images/svg/logo.svg" alt="Logo" class="app-logo"/>
+            <h1>Prise en charge complète</h1>
+        </header>
+        <main>
+            <div id="repairSummary">
+                <p>Nom: <span id="completeName"></span></p>
+                <p>Email: <span id="completeEmail"></span></p>
+                <p>Numéro de téléphone: <span id="completePhone"></span></p>
+                <p>Modèle du téléphone: <span id="completeModel"></span></p>
+                <p>Type de réparation: <span id="completeRepairType"></span></p>
+                <p>Tarif prévisionnel: <span id="completeEstimatedPrice"></span></p>
+                <p><span id="completeUnlockInfo"></span></p>
+                <canvas id="patternCanvas" width="200" height="200" style="border:1px solid #000;"></canvas>
+                <div id="signaturePad" class="signature-pad">
+                    <!-- La signature sera affichée ici -->
+                </div>
+            </div>
+            <button id="printButton" onclick="window.print();">Imprimer</button>
+        </main>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const repairData = JSON.parse(localStorage.getItem('repairFormData'));
+            if (repairData && repairData.pattern) {
+                drawPattern(repairData.pattern);
+            }
+        });
+        
+        function drawPattern(pattern) {
+            const canvas = document.getElementById('patternCanvas');
+            if (!canvas.getContext) return; // Canvas not supported
+            const ctx = canvas.getContext('2d');
+            
+            // Dimensions
+            const size = canvas.width; // Assuming square canvas
+            const gridSize = 3; // Grid size for pattern lock
+            const cellSize = size / gridSize;
+            const dotSize = cellSize / 4; // Size of the dots
+            const offset = cellSize / 2; // Offset to center dots
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
+            
+            // Draw pattern
+            ctx.beginPath();
+            pattern.split('').forEach((num, index) => {
+                // Calculate dot position
+                const numInt = parseInt(num, 10) - 1; // Convert char to int and 0-index
+                const x = (numInt % gridSize) * cellSize + offset;
+                const y = Math.floor(numInt / gridSize) * cellSize + offset;
+                
+                if (index === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+                
+                // Draw dot
+                ctx.moveTo(x + dotSize / 2, y);
+                ctx.arc(x, y, dotSize / 2, 0, Math.PI * 2, true);
+            });
+            ctx.strokeStyle = '#000';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        }
+        </script>        
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const repairData = JSON.parse(localStorage.getItem('repairFormData'));
+    if (repairData) {
+        document.getElementById('completeName').textContent = repairData.fullname;
+        document.getElementById('completeEmail').textContent = repairData.email;
+        document.getElementById('completePhone').textContent = repairData.phone;
+        document.getElementById('completeModel').textContent = repairData.model;
+        document.getElementById('completeRepairType').textContent = mapRepairType(repairData.repairType);
+        document.getElementById('completeEstimatedPrice').textContent = repairData.estimatedPrice + ' €';
+        
+        // Adaptez cette partie pour afficher correctement le schéma ou le code PIN
+        let unlockDisplay;
+        if (repairData.unlockType === 'pin') {
+            unlockDisplay = 'Code PIN: ' + repairData.pinCode;
+        } else {
+            // Pour le schéma, vous pouvez décider comment afficher cette information.
+            // Par exemple, vous pourriez simplement indiquer qu'un schéma a été défini :
+            unlockDisplay = 'Schéma défini'; // Ou afficher le pattern enregistré : repairData.pattern
+        }
+        document.getElementById('completeUnlockInfo').textContent = unlockDisplay;
+        
+        const signatureImage = localStorage.getItem('signatureImage');
+        if (signatureImage) {
+            const img = new Image();
+            img.src = signatureImage;
+            document.getElementById('signaturePad').appendChild(img);
+        }
+    }
+
+    function mapRepairType(repairType) {
+        const types = {
+            "screen": "Écran",
+            "battery": "Batterie",
+            "charging_connector": "Connecteur de charge",
+            "earpiece": "Écouteur",
+            "loudspeaker": "Haut-parleur",
+            "vibrator": "Vibreur",
+            "rear_glass": "Vitre Arrière",
+            "chassis": "Chassis",
+            "bluetooth_wifi": "Bluetooth / Wifi",
+            "front_camera": "Appareil Photo Avant",
+            "rear_camera": "Appareil Photo Arrière"
+        };
+        return types[repairType] || "Type inconnu";
+    }
+});
+</script>
+</body>
+</html>

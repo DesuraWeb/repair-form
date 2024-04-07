@@ -1,60 +1,84 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var lock = null; // Instance of PatternLock
+    var lock = null;
 
-    // Fonction pour mettre à jour l'affichage en fonction du type de déverrouillage sélectionné
     function updateUnlockDisplay() {
-        var unlockType = document.getElementById('unlockType').value;
-        var pinCode = document.getElementById('pinCode');
-        var patternContainer = document.getElementById('patternContainer');
+        var unlockTypeElement = document.getElementById('unlockType');
+        var pinCodeElement = document.getElementById('pinCode');
+        var patternContainerElement = document.getElementById('patternContainer');
 
-        if (unlockType === 'pin') {
-            pinCode.style.display = 'block';
-            patternContainer.style.display = 'none';
-            if (lock && lock.destroy) {
-                lock.destroy();
-                lock = null;
-            }
-        } else if (unlockType === 'pattern') {
-            pinCode.style.display = 'none';
-            patternContainer.style.display = 'block';
-            if (!lock) {
-                lock = new PatternLock('#lock', {
-                    onPattern: function(pattern) {
-                        console.log(pattern); // Optionally update a hidden field with the drawn pattern
-                    }
-                });
+        if (unlockTypeElement && pinCodeElement && patternContainerElement) {
+            var unlockType = unlockTypeElement.value;
+
+            if (unlockType === 'pin') {
+                pinCodeElement.style.display = 'block';
+                patternContainerElement.style.display = 'none';
+                if (lock && typeof lock.destroy === 'function') {
+                    lock.destroy();
+                    lock = null;
+                }
+            } else if (unlockType === 'pattern') {
+                pinCodeElement.style.display = 'none';
+                patternContainerElement.style.display = 'block';
+                if (!lock) {
+                    lock = new PatternLock('#lock', {
+                        onPattern: function(pattern) {
+                            localStorage.setItem('patternUnlockCode', pattern);
+                            console.log(pattern);
+                        }
+                    });
+                }
             }
         }
     }
 
-    // Initialiser l'affichage des champs lors du chargement de la page
-    updateUnlockDisplay();
+    if (document.getElementById('unlockType')) {
+        updateUnlockDisplay();
+        document.getElementById('unlockType').addEventListener('change', updateUnlockDisplay);
+    }
 
-    // Écouter les changements sur le menu déroulant 'unlockType'
-    document.getElementById('unlockType').addEventListener('change', updateUnlockDisplay);
+    var formElement = document.getElementById('repairForm');
+    if (formElement) {
+        formElement.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = {
+                fullname: document.getElementById('fullname').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                unlockType: document.getElementById('unlockType').value,
+                pinCode: document.getElementById('pinCode').value,
+                model: document.getElementById('model').value,
+                repairType: document.getElementById('repairType').value,
+                estimatedPrice: document.getElementById('estimatedPrice').value,
+                unlockCode: localStorage.getItem('patternUnlockCode') || document.getElementById('pinCode').value
+            };
 
-    document.getElementById('repairForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const fullname = document.getElementById('fullname').value;
-        const email = document.getElementById('email').value;
-        let unlockCode = '';
-
-        if (document.getElementById('unlockType').value === 'pattern' && lock) {
-            unlockCode = lock.getPattern();
-        } else {
-            unlockCode = document.getElementById('pinCode').value;
-        }
-
-        console.log(`Dossier pour ${fullname}, Email: ${email}, Code: ${unlockCode}`);
-        // Ici, ajoutez la logique pour envoyer les informations au serveur ou les traiter localement.
-    });
+            localStorage.setItem('repairFormData', JSON.stringify(formData));
+            window.location.href = 'accept-repair.html';
+        });
+    }
 });
 
-// Gestion de la popup d'informations
-function openPopup() {
-    document.getElementById('infoPopup').style.display = 'flex';
-}
+    // Gestion de la popup d'informations uniquement si elle existe
+    var infoPopupElement = document.getElementById('infoPopup');
+    if (infoPopupElement) {
+        function openPopup() {
+            infoPopupElement.style.display = 'flex';
+        }
 
-function closePopup() {
-    document.getElementById('infoPopup').style.display = 'none';
-}
+        function closePopup() {
+            infoPopupElement.style.display = 'none';
+        }
+
+        // Supposons que vos boutons pour ouvrir/fermer la popup aient des ID ou des gestionnaires d'événements spécifiques
+    }
+
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('../sw.js').then(registration => {
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }, err => {
+        console.log('ServiceWorker registration failed: ', err);
+      });
+    });
+  }
+  

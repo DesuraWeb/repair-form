@@ -67,7 +67,7 @@
             
             <div class="input-container">
                 <img src="assets/images/svg/create-repair/code.svg" alt="verrouillage" class="input-icon">
-                <input type="text" id="pinCode" name="pinCode" placeholder="Code de déverrouillage" required style="display:none;" inputmode="numeric" pattern="\d*" title="Uniquement des chiffres.">
+                <input type="text" id="pinCode" name="pinCode" placeholder="Code de déverrouillage" style="display:none;" inputmode="numeric" pattern="\d*" title="Uniquement des chiffres.">
             </div>
 
                 <div id="patternContainer" style="display:none;">
@@ -119,27 +119,48 @@
             <a href="index.html" class="back-to-dashboard">Retour au tableau de bord</a>
         </main>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('repairForm').addEventListener('submit', function(event) {
-                event.preventDefault();
-                const formData = {
-                    fullname: document.getElementById('fullname').value,
-                    email: document.getElementById('email').value,
-                    phone: document.getElementById('phone').value,
-                    unlockType: document.getElementById('unlockType').value,
-                    pinCode: document.getElementById('pinCode').value,
-                    model: document.getElementById('model').value,
-                    repairType: document.getElementById('repairType').value,
-                    estimatedPrice: document.getElementById('estimatedPrice').value
-                };
-        
-                localStorage.setItem('repairFormData', JSON.stringify(formData));
-                window.location.href = 'accept-repair.html';
+        <script src="js/patternlock.min.js"></script>
+        <script src="js/app.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Initialiser PatternLock ici si nécessaire
+                var lock;
+                if (document.getElementById('patternContainer')) {
+                    lock = new PatternLock('#patternContainer', {
+                        onDraw: function(pattern) {
+                            document.getElementById('unlockPattern').value = pattern;
+                        }
+                    });
+                }
+            
+                document.getElementById('repairForm').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    const unlockType = document.getElementById('unlockType').value;
+                    let unlockCode = document.getElementById('pinCode').value;
+                    let unlockPattern = '';
+            
+                    // Si le type de déverrouillage est un schéma, récupérer le schéma actuel
+                    if (unlockType === 'pattern' && lock) {
+                        unlockPattern = lock.getPattern(); // Assurez-vous que la bibliothèque supporte une telle méthode
+                    }
+            
+                    const formData = {
+                        fullname: document.getElementById('fullname').value,
+                        email: document.getElementById('email').value,
+                        phone: document.getElementById('phone').value,
+                        unlockType: unlockType,
+                        pinCode: unlockCode,
+                        unlockPattern: unlockPattern, // Ajout du schéma à l'objet formData
+                        model: document.getElementById('model').value,
+                        repairType: document.getElementById('repairType').value,
+                        estimatedPrice: document.getElementById('estimatedPrice').value,
+                        pattern: lock ? lock.getPattern() : ''  // Ajoutez cette ligne pour enregistrer le pattern
+                    };
+            
+                    localStorage.setItem('repairFormData', JSON.stringify(formData));
+                    window.location.href = 'accept-repair.html';
+                });
             });
-        });
-        </script>
-    <script src="js/patternlock.min.js"></script>
-    <script src="js/app.js"></script>
+            </script>
 </body>
 </html>

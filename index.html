@@ -29,10 +29,10 @@
                     Modifier Dossier
                 </a>
                 <a href="#" class="option">
-                    <img src="assets/images/svg/icon2.svg" alt="Dossiers antérieurs" />
+                    <img src="assets/images/svg/icon2.svg" alt="Intégrations" />
                     Intégrations
                 </a>
-                <a href="#" class="option">
+                <a href="settings.html" class="option">
                     <img src="assets/images/svg/icon2.svg" alt="Paramètres" />
                     Paramètres
                 </a>
@@ -44,6 +44,11 @@
         </footer>
         
     </div>
+    <script>
+        if (typeof navigator.serviceWorker !== 'undefined') {
+          navigator.serviceWorker.register('sw.js')
+        }
+      </script>      
     <script src="js/cookie.js"></script>
     <script src="js/app.js"></script>
 </body>

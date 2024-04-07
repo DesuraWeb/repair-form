@@ -1,0 +1,18 @@
+{
+    "googleDriveAPI": {
+      "clientId": "VOTRE_CLIENT_ID",
+      "clientSecret": "VOTRE_CLIENT_SECRET",
+      "redirectUri": "VOTRE_REDIRECT_URI",
+      "scope": "https://www.googleapis.com/auth/drive.file"
+    },
+    "smtpSettings": {
+      "host": "smtp.example.com",
+      "port": 587,
+      "secure": false,
+      "auth": {
+        "user": "votre@adresse.email",
+        "pass": "votreMotDePasse"
+      }
+    }
+  }
+  

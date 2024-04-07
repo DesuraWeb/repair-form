@@ -270,12 +270,12 @@ a {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background: url('images/svg/create-repair/dropdown.svg') no-repeat right 10px center, linear-gradient(to bottom, #ffffff, #ffffff); /* ajustez le chemin de l'icône de flèche */
+    background: url('../images/svg/create-repair/dropdown.svg') no-repeat right 10px center, linear-gradient(to bottom, #ffffff, #ffffff); /* ajustez le chemin de l'icône de flèche */
     cursor: pointer;
 }
 
 input#estimatedPrice {
-    background: url('assets/images/svg/create-repair/euro.svg') no-repeat right 10px center, linear-gradient(to bottom, #ffffff, #ffffff); /* ajustez le chemin de l'icône de flèche */
+    background: url('../images/svg/create-repair/euro.svg') no-repeat right 10px center, linear-gradient(to bottom, #ffffff, #ffffff); /* ajustez le chemin de l'icône de flèche */
 }
 
 
@@ -390,9 +390,7 @@ input#estimatedPrice {
 }
 
 .signature-pad canvas {
-    width: 100%;
     max-width: 100%; /* Assure que le canvas ne déborde pas de son conteneur */
-    height: 200px;
     border-bottom-left-radius: 4px; /* Adoucit le coin inférieur gauche */
     border-bottom-right-radius: 4px; /* Adoucit le coin inférieur droit */
     cursor: crosshair;
