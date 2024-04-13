@@ -49,36 +49,52 @@ document.addEventListener('DOMContentLoaded', function() {
                 model: document.getElementById('model').value,
                 repairType: document.getElementById('repairType').value,
                 estimatedPrice: document.getElementById('estimatedPrice').value,
-                unlockCode: localStorage.getItem('patternUnlockCode') || document.getElementById('pinCode').value
+                unlockPattern: document.getElementById('unlockPattern').value            
             };
 
             localStorage.setItem('repairFormData', JSON.stringify(formData));
-            window.location.href = 'accept-repair.html';
+            window.location.href = 'accept-repair.php';
         });
     }
 });
 
-    // Gestion de la popup d'informations uniquement si elle existe
+// Define functions in the global scope
+function openPopup() {
     var infoPopupElement = document.getElementById('infoPopup');
     if (infoPopupElement) {
-        function openPopup() {
-            infoPopupElement.style.display = 'flex';
-        }
-
-        function closePopup() {
-            infoPopupElement.style.display = 'none';
-        }
-
-        // Supposons que vos boutons pour ouvrir/fermer la popup aient des ID ou des gestionnaires d'événements spécifiques
+        infoPopupElement.style.display = 'flex';
     }
+}
+
+function closePopup() {
+    var infoPopupElement = document.getElementById('infoPopup');
+    if (infoPopupElement) {
+        infoPopupElement.style.display = 'none';
+    }
+}
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('../sw.js').then(registration => {
+      navigator.serviceWorker.register('/sw.js').then(registration => {
         console.log('ServiceWorker registration successful with scope: ', registration.scope);
       }, err => {
         console.log('ServiceWorker registration failed: ', err);
       });
     });
   }
+
+  // Setup event listeners after the DOM has fully loaded
+document.addEventListener('DOMContentLoaded', function () {
+    var qrScanButton = document.getElementById('qrScanButton');
+    if (qrScanButton) {
+        qrScanButton.addEventListener('click', openPopup);
+    }
+
+    // If there's a close button inside your popup, set up its listener here as well
+    // Example:
+    // var closeButton = document.getElementById('closeButton');
+    // if (closeButton) {
+    //     closeButton.addEventListener('click', closePopup);
+    // }
+});
   

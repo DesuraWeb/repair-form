@@ -1,6 +1,6 @@
 {
   "short_name": "RepairForm",
-  "name": "Service de Réparation d'Appareils",
+  "name": "Service de Prise en charge d'Appareils",
   "description": "Application permettant aux utilisateurs de soumettre des demandes de réparation pour smartphones, tablettes, et ordinateurs.",
   "id": "https://repairform.app",
   "lang": "fr",
@@ -81,5 +81,18 @@
         }
       ]
     }
-  }
+  },
+  "handle_links": "prefer_related_applications",
+  "capabilities": {
+    "edge_side_panel": true
+  },
+  "shortcuts": [
+    {
+      "name": "Réparation rapide",
+      "short_name": "Réparer",
+      "description": "Accédez directement au formulaire de réparation",
+      "url": "/create-repair.php",
+      "icons": [{ "src": "/path/to/icons/repair.png", "sizes": "192x192" }]
+    }
+  ]
 }
